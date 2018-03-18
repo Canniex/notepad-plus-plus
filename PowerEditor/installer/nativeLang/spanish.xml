@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NotepadPlus>
-	<Native-Langue name="Español" filename="spanish.xml" version="7.5">
+	<Native-Langue name="Español" filename="spanish.xml" version="7.5.5">
 		<Menu>
 			<Main>
 				<!-- Main Menu Entries -->
@@ -435,13 +435,41 @@
 					<Item id="2232" name="Habilitar estilo global en subrayado"/>
 				</SubDialog>
 			</StyleConfig>
-			<UserDefine title="Lenguaje Definido por el Usuario">
-				<Item id="20001" name="Acoplar"/>
-				<Item id="20002" name="Renombrar"/>
-				<Item id="20003" name="Crear nuevo..."/>
+			<ShortcutMapper title="Shortcut Mapper">
+				<Item id="2602" name="Modificar"/>
+				<Item id="2603" name="Borrar"/>
+				<Item id="2606" name="Limpiar"/>
+				<Item id="2607" name="Filtro: "/>
+				<Item id="1" name="Cerrar"/>
+				<ColumnName name="Nombre"/>
+				<ColumnShortcut name="Acceso directo"/>
+				<ColumnCategory name="Categoría"/>
+				<ColumnPlugin name="Plugin"/>
+				<MainMenuTab name="Menú principal"/>
+				<MacrosTab name="Macros"/>
+				<RunCommandsTab name="Ejecutar comandos"/>
+				<PluginCommandsTab name="Comandos del plugin"/>
+				<ScintillaCommandsTab name="Comandos de Scintilla"/>
+				<ConflictInfoOk name="No hay conflictos de acceso directo para este elemento."/>
+				<ConflictInfoEditing name="Sin conflictos"/>
+			</ShortcutMapper>
+			<ShortcutMapperSubDialg title="Acceso directo">
+				<Item id="1" name="OK"/>
+				<Item id="2" name="Cancelar"/>
+				<Item id="5006" name="Nombre"/>
+				<Item id="5008" name="Agregar"/>
+				<Item id="5009" name="Eliminar"/>
+				<Item id="5010" name="Aplicar"/>
+				<Item id="5007" name="Esto eliminará el acceso directo de este comando"/>
+				<Item id="5012" name="CONFLICTO ENCONTRADO"/>
+			</ShortcutMapperSubDialg>
+			<UserDefine title="User-Defined">
+				<Item id="20001" name="Dock"/>
+				<Item id="20002" name="Cambiar nombre"/>
+				<Item id="20003" name="Crear nuevo ..."/>
 				<Item id="20004" name="Eliminar"/>
-				<Item id="20005" name="Guardar como..."/>
-				<Item id="20007" name="Lenguaje: "/>
+				<Item id="20005" name="Guardar como ..."/>
+				<Item id="20007" name="Idioma del usuario:"/>
 				<Item id="20009" name="Ext.:"/>
 				<Item id="20012" name="Ignorar MAY./min."/>
 				<Item id="20011" name="Transparencia"/>
@@ -872,8 +900,8 @@
 			</ColumnEditor>
 		</Dialog>
 		<MessageBox>
+			<!-- $INT_REPLACE$ is a place holder, don't translate it -->
 			<ContextMenuXmlEditWarning title="Edición de menú contextual" message="La edición de contextMenu.xml le permite modificar el menú contextual de su Notepad ++.
-			ContextMenuXmlEditWarning title="Edición de menú contextual" message="La edición de contextMenu.xml le permite modificar el menú contextual de su Notepad ++.
 Debe reiniciar Notepad ++ para que tenga efecto después de modificar contextMenu.xml."/>
 			<NppHelpAbsentWarning title="El archivo no existe" message="
 Descárguelo en el sitio Notepad ++."/>
@@ -886,17 +914,74 @@ Todas las modificaciones guardadas no se pueden deshacer.
 
 Indique si desea continuar"/>
 			<CannotMoveDoc title="Mover a la nueva instancia de Notepad ++" message="El documento se ha modificado, guárdelo y vuelva a intentarlo"/>
-			<DocReloadWarning title="Recargar" message = "Confirme si desea volver a cargar el archivo actual y perder los cambios en Notepad ++"/>
+			<DocReloadWarning title="Recargar" message="Confirme si desea volver a cargar el archivo actual y perder los cambios en Notepad ++"/>
 			<FileLockedWarning title="Error al guardar" message="Verifique si este archivo está abierto por otro programa"/>
 			<FileAlreadyOpenedInNpp title="" message="El archivo ya está abierto en Notepad ++."/>
 			<DeleteFileFailed title="Delete File" message="Error al borrar el archivo"/>
-			<!-- $INT_REPLACE$ is a place holder, don't translate it -->
 			<NbFileToOpenImportantWarning title="La cantidad de archivos para abrir es demasiado grande" message="Están a punto de abrirse$INT_REPLACE$ archivos. 
 Confirme si desea abrirlos."/>
-			<SettingsOnCloudError title="Configuración en la nube" message=Parece que la ruta de configuración en la nube está configurada en una unidad de solo lectura o en una carpeta que necesita permiso para acceder a escribir.
-Su configuración en la nube se cancelará. Restablezca el valor necesario a través del cuadro de diálogo de Preferencias. "/>
+			<SettingsOnCloudError title="Ajustes en la nube" message="Parece que la ruta de configuración en la nube está configurada en una unidad de solo lectura,
+o en una carpeta que necesita privilegios para escribir.
+Su configuración en la nube se cancelará. Restablezca un valor coherente a través del cuadro de diálogo de preferencias."/>
 			<FilePathNotFoundWarning title="Abrir archivo" message="El archivo que desea abrir no existe."/>
-			<SessionFileInvalidError title="No se pudo cargar la sesión" message="El archivo de sesión está dañado o no es válido." />
+			<SessionFileInvalidError title="No se pudo cargar la sesión" message="El archivo de sesión está dañado o no es válido."/>
+			<DroppingFolderAsProjetModeWarning title="Acción no válida" message="Solo puede colocar archivos o carpetas pero no ambos, porque está abandonando la carpeta en modo Proyecto.
+debe habilitar &quot;Abrir todos los archivos de la carpeta en lugar de abrir la carpeta como espacio de trabajo en la carpeta que se quita&quot; en &quot;Directorio predeterminado&quot; sección del cuadro de diálogo Preferencias para hacer que esta operación funcione."/>
+			<SortingError title="Error de clasificación" message="No se puede realizar la clasificación numérica debido a la línea $INT_REPLACE$."/>
+			<ColumnModeTip title="Consejo de modo de columna" message="Utilice &quot;ALT+selección por ratón&quot; o &quot;Alt+Shift+tecla de flecha&quot; para cambiar al modo de columna."/>
+			<BufferInvalidWarning title="Error al guardar" message="Imposible guardar. El buffer es inválido."/>
+			<DoSaveOrNot title="Guardar" message="Guardar archivo &quot;$STR_REPLACE$&quot; ?"/>
+			<DoCloseOrNot title="Mantener archivo no existente" message="El archivo &quot;$STR_REPLACE$&quot; no existe ya.
+Keep this file in editor?"/>
+			<DoDeleteOrNot title="Borrar archivo" message="El archivo &quot;$STR_REPLACE$&quot;
+se moverá a la papelera de reciclaje y este documento se cerrará.
+¿Continuar?"/>
+			<NoBackupDoSaveFile title="Guardar" message="Su archivo de backup no puede ser encontrado (borrado desde fuera).
+Debe guardarlo, o sus datos se perderán
+Confirme si desea guardar el archivo &quot;$STR_REPLACE$&quot; ?"/>
+			<DoReloadOrNot title="Recargar" message="&quot;$STR_REPLACE$&quot;
+
+Este archivo ha sido modificado por otro programa.
+Confirme si desea recargarlo."/>
+			<DoReloadOrNotAndLooseChange title="Recargar" message="&quot;$STR_REPLACE$&quot;
+
+Este archivo ha sido modificado por otro programa.
+Confirme si desea recargarlo y perder los cambios hechos con Notepad++"/>
+			<PrehistoricSystemDetected title="Detectado sistema anticuado" message="Parece que usa un sistema anticuado. Esta característica solo funciona en sistemas actualizados."/>
+			<XpUpdaterProblem title="Notepad++ Updater" message="Notepad++ updater no es compatible con XP debido a la poca seguridad al ejecutarlo en XP.
+Confirme si desea ir a la página web de Notepad++ para descargar la última versión"/>
+			<DocTooDirtyToMonitor title="Problema de monitorización" message="El documento está sucio. Guarde las modificaciones antes de monitorizarlo."/>
+			<DocNoExistToMonitor title="Problema de monitorización" message="El archivo debe existir para monitorizarlo."/>
+			<FileTooBigToOpene title="Problema de tamaño del archivo" message="El archivo es demasiado grande para abrirlo con Notepad++"/>
+			<CreateNewFileOrNot title="Crear archivo nuevo" message="&quot;$STR_REPLACE$&quot; no existe. Confirme si desea crearlo."/>
+			<CreateNewFileError title="Crear archivo nuevo" message="No se puede crear el archivo &quot;$STR_REPLACE$&quot;."/>
+			<OpenFileError title="ERROR" message="No se puede abrir el archivo &quot;$STR_REPLACE$&quot;."/>
+			<FileBackupFailed title="Fallo al hacer backup" message="La versión previa del archivo no pudo ser guardada en la carpeta de backup  &quot;$STR_REPLACE$&quot;.
+
+Confirme si desea guardarlo de todos modos."/>
+			<LoadStylersFailed title="Fallo al cargar stylers.xml" message="Carga &quot;$STR_REPLACE$&quot; fallida"/>
+			<LoadLangsFailed title="Configurador" message="Fallo al cargar langs.xml
+¿Desea recuperar su langs.xml?"/>
+			<LoadLangsFailedFinal title="Configurador" message="Fallo al cargar langs.xml"/>
+			<FolderAsWorspaceSubfolderExists title="Problema de carpeta de trabajo" message="Ya existe una subcarpeta de la carpeta que desea añadir.
+Elimine su raiz del panel antes de añadir la carpeta &quot;$STR_REPLACE$&quot;."/>
+			<ProjectPanelChanged title="$STR_REPLACE$" message="El espacio de trabajo fue modificado. Confirme si desea guardarlo"/>
+			<ProjectPanelChangedSaveError title="$STR_REPLACE$" message="Su espacio de trabajo no se ha guardado."/>
+			<ProjectPanelOpenDoSaveDirtyWsOrNot title="Abrir espacio de trabajo" message="El espacio de trabajo actual fue modificado. ¿Desea guardar el proyecto actual?"/>
+			<ProjectPanelNewDoSaveDirtyWsOrNot title="Nuevo espacio de trabajo" message="El espacio de trabajo actual fue modificado. ¿Desea guardar el proyecto actual?"/>
+			<ProjectPanelOpenFailed title="Abrir espacio de trabajo" message="El espacio de trabajo no se pudo abrir.
+Parece que el archivo para abrir no es un archivo de proyecto válido."/>
+			<ProjectPanelRemoveFolderFromProject title="Eliminar carpeta del proyecto" message="Todos los subelementos serán eliminados.
+¿Desea eliminar esta carpeta del proyecto?"/>
+			<ProjectPanelRemoveFileFromProject title="Eliminar archivo del proyecto" message="¿Desea eliminar esta carpeta del proyecto?"/>
+			<ProjectPanelReloadError title="Recargar área de trabajo" message="No se puede encontrar el archivo para volver a cargar."/>
+			<ProjectPanelReloadDirty title="Recargar área de trabajo" message="El espacio de trabajo actual fue modificado. La recarga descartará todas las modificaciones.
+Confirme si desea continuar"/>
+			<UDLNewNameError title="Error de UDL" message="Este nombre es utilizado por otro idioma,
+indique otro."/>
+			<UDLRemoveCurrentLang title="Eliminar idioma actual" message="Confirme si está seguro"/>
+			<SCMapperDoDeleteOrNot title="Confirme si está seguro" message="Confirme si está seguro de que desea eliminar este enlace"/>
+			<FindCharRangeValueError title="Problema de valor de rango" message="Debe indicar un valor entre 0 y 255."/>
 		</MessageBox>
 		<ClipboardHistory>
 			<PanelTitle name="Historial del portapapeles"/>
@@ -906,8 +991,13 @@ Su configuración en la nube se cancelará. Restablezca el valor necesario a tra
 			<ColumnName name="Nombre"/>
 			<ColumnExt name="Ext."/>
 		</DocSwitcher>
+		<WindowsDlg>
+			<ColumnName name="Nombre"/>
+			<ColumnPath name="Ruta"/>
+			<ColumnType name="Tipo"/>
+		</WindowsDlg>
 		<AsciiInsertion>
-			<PanelTitle name="Panel de inserción ASCII/>
+			<PanelTitle name="Panel de inserción ASCII"/>
 			<ColumnVal name="Valor"/>
 			<ColumnHex name="Hex"/>
 			<ColumnChar name="Carácter"/>
@@ -920,15 +1010,30 @@ Su configuración en la nube se cancelará. Restablezca el valor necesario a tra
 			<SortTip name="Ordenar"/>
 			<ReloadTip name="Recargar"/>
 		</FunctionList>
+		<FolderAsWorkspace>
+			<PanelTitle name="Carpeta como espacio de trabajo"/>
+			<SelectFolderFromBrowserString name="Seleccione una carpeta para agregar como panel de espacio de trabajo"/>
+			<Menus>
+				<Item id="3511" name="Eliminar"/>
+				<Item id="3512" name="Eliminar todo"/>
+				<Item id="3513" name="Añadir"/>
+				<Item id="3514" name="Ejecutar por el sistema"/>
+				<Item id="3515" name="Abrir"/>
+				<Item id="3516" name="Copiar ruta"/>
+				<Item id="3517" name="Encontrar en archivos..."/>
+				<Item id="3518" name="Explorer aquí"/>
+				<Item id="3519" name="CMD aquí"/>
+			</Menus>
+		</FolderAsWorkspace>
 		<ProjectManager>
 			<PanelTitle name="Proyecto"/>
-			<WorkspaceRootName name="Espacio de trabajo" />
-			<NewProjectName name="Nombre del proyecto" />
-			<NewFolderName name="Nombre de la carpeta" />
+			<WorkspaceRootName name="Espacio de trabajo"/>
+			<NewProjectName name="Nombre del proyecto"/>
+			<NewFolderName name="Nombre de la carpeta"/>
 			<Menus>
 				<Entries>
-					<ID de elemento="0" name="Espacio de trabajo"/>
-					<Id. De elemento="1" nombre="Editar"/>
+					<Item id="0" name="Workspace"/>
+					<Item id="1" name="Edit"/>
 				</Entries>
 				<WorkspaceMenu>
 					<Item id="3122" name="Nueva área de trabajo"/>
@@ -967,18 +1072,42 @@ Su configuración en la nube se cancelará. Restablezca el valor necesario a tra
 			</Menus>
 		</ProjectManager>
 		<MiscStrings>
-			<word-chars-list-tip value=Esto le permite incluir caracteres adicionales en palabras actuales al hacer doble clic para seleccionarlos o buscarlos con &quot;Hacer coincidir solo palabras completas&quot; opción activada."/>
+			<!-- $INT_REPLACE$  and $STR_REPLACE$ are a place holders, don't translate these place holders -->
+			<word-chars-list-tip value="Esto le permite incluir caracteres adicionales en palabras actuales al hacer doble clic para seleccionarlos o buscarlos con &quot;Hacer coincidir solo palabras completas&quot; opción activada."/>
 			<word-chars-list-warning-begin value="Tenga en cuenta: "/>
-			<!-- $INT_REPLACE$ is a place holder, don't translate it -->
 			<word-chars-list-space-warning value="$INT_REPLACE$ space(s)"/>
-			<!-- $INT_REPLACE$ is a place holder, don't translate it -->
 			<word-chars-list-tab-warning value="$INT_REPLACE$ TAB(s)"/>
 			<word-chars-list-warning-end value="  en su lista de caracteres."/>
 			<cloud-invalid-warning value="Ruta inválida."/>
 			<cloud-restart-warning value="Reinicie Notepad++ para que tenga efecto ."/>
+			<cloud-select-folder value="Seleccione una carpeta en la que Notepad++ escriba y lea sus ajustes"/>
 			<shift-change-direction-tip value="Use Mayúsculas + Enter para buscar en dirección contraria"/>
+			<two-find-buttons-tip value="2 modos de búsqueda"/>
+			<find-status-top-reached value="Buscar: Encontrada la primera ocurrencia desde abajo. El comienzo del documento ha sido alcanzado."/>
+			<find-status-end-reached value="Buscar: Encontrada la primera ocurrencia desde la parte superior. El final del documento ha sido alcanzado."/>
+			<find-status-replaceinfiles-1-replaced value="Reemplazar en archivos: 1 ocurrencia fue reemplazada"/>
+			<find-status-replaceinfiles-nb-replaced value="Reemplazar en archivos: $INT_REPLACE$ ocurrencias reemplazadas"/>
+			<find-status-replaceinfiles-re-malformed value="Reemplazar en archivos abiertos: La expresión regular está deformada"/>
+			<find-status-replaceinopenedfiles-1-replaced value="Reemplazar en archivos abiertos: 1 ocurrencia reemplazada"/>
+			<find-status-replaceinopenedfiles-nb-replaced value="Reemplazar en archivos abiertos: $INT_REPLACE$ ocurrencias reemplazadas"/>
+			<find-status-mark-re-malformed value="Marca: La expresión regular para buscar está deformada"/>
+			<find-status-invalid-re value="Encontrar: La expresión regular es inválida"/>
+			<find-status-mark-1-match value="1 coincidencia"/>
+			<find-status-mark-nb-matches value="$INT_REPLACE$ coincidencias"/>
+			<find-status-count-re-malformed value="Cuenta: La expresión regular está deformada"/>
+			<find-status-count-1-match value="Cuenta: 1 coincidencia"/>
+			<find-status-count-nb-matches value="Cuenta: $INT_REPLACE$ coincidencias"/>
+			<find-status-replaceall-re-malformed value="Reemplazar todo: La expresión regular está deformada"/>
+			<find-status-replaceall-1-replaced value="Reemplazar todo: una ocurrencia reemplazada"/>
+			<find-status-replaceall-nb-replaced value="Reemplazar todo: $INT_REPLACE$ ocurrencias reemplazadas"/>
+			<find-status-replaceall-readonly value="Reemplazar todo: No se puede reemplazar el texto. El documento es de solo lectura"/>
+			<find-status-replace-end-reached value="Reemplazar: Reemplazada la primera ocurrencia desde la parte superior. El final del documento ha sido alcanzado"/>
+			<find-status-replace-top-reached value="Reemplazar: Reemplazada la primera ocurrencia desde la parte inferior. El inicio del documento ha sido alcanzado"/>
+			<find-status-relaced-next-found value="Reemplazar: una ocurrencia reemplazada. Encontrada la siguiente"/>
+			<find-status-relaced-next-not-found value="Reemplazar: una ocurrencia reemplazada. No encontrada la siguiente"/>
+			<find-status-replace-not-found value="Reemplazar: No encontrada ninguna ocurrencia"/>
+			<find-status-replace-readonly value="Reemplazar: No se puede reemplazar el texto El documento es de solo lectura"/>
+			<find-status-cannot-find value="Encontrar: No encontrado el texto &quot;$STR_REPLACE$&quot;"/>
 		</MiscStrings>
 	</Native-Langue>
 </NotepadPlus>
-
-
